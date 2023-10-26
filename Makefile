@@ -32,7 +32,8 @@ ${LIBFT}:
 	make -C ${LIBFT_PATH} all bonus
 
 ${NAME}: ${LIBFT} ${FILES_O}
-	${CC} ${FLAGS} ${FILES_O} ${LIBFT} -I ${FILES_H} -I ${GNL}get_next_line_bonus.h -o ${NAME} \
+		mkdir ./tmp
+	   	${CC} ${FLAGS} ${FILES_O} ${LIBFT} -I ${FILES_H} -I ${GNL}get_next_line_bonus.h -o ${NAME} \
 		&& echo "Make done successfully." \ || echo "Doesn't work, sadge. :c"
 
 clean:
@@ -41,6 +42,7 @@ clean:
 
 fclean: clean
 	rm -f ${NAME}
+	rm -rf ./tmp
 	make -C ${LIBFT_PATH} fclean \
 	&& echo "Fclean done successfully." \ || echo "Haha your fclean suck."
 
